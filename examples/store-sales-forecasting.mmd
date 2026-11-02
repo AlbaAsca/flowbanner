@@ -1,0 +1,10 @@
+---
+title: store-sales-forecasting
+subtitle: ¿Cuánto venderá mañana un supermercado? 1.782 series, validación temporal honesta.
+stack: Python · pandas · LightGBM · backtesting · Kaggle · equipo de agentes de IA
+---
+flowchart LR
+  A[Idea<br/>45 experimentos]:::cyan --> B[Backtest<br/>4 folds]:::cyan
+  B --> C[Holdout<br/>últimos 16 días]:::amber
+  C --> D[Kaggle<br/>10 versiones]:::purple
+  D --> E[RMSLE<br/>0,45751 → 0,38839]:::green

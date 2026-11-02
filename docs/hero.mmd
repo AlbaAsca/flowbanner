@@ -1,0 +1,10 @@
+---
+title: flowbanner
+subtitle: Escribes un flowchart de Mermaid y obtienes un banner animado para tu README.
+stack: Python sin dependencias · SVG autónomo · temas JSON · GitHub Action
+---
+flowchart LR
+  T[hero.mmd<br/>texto en tu repo]:::cyan --> P[Parser<br/>subconjunto de Mermaid]:::blue
+  P --> L[Layout<br/>columnas y filas]:::amber
+  L --> R[Tema<br/>Tokyo Night]:::purple
+  R --> S[hero.svg<br/>listo para img]:::green

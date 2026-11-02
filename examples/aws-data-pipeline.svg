@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#7AA2F7"/><stop offset="1" stop-color="#BB9AF7"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1F2335" stroke-width="1"/>
+    </pattern>
+    <style>
+      .node { fill: #24283B; stroke-width: 2; }
+      .label { fill: #C0CAF5; font-size: 17px; font-weight: 600; text-anchor: middle; }
+      .sub { fill: #9AA5CE; font-size: 13px; text-anchor: middle; }
+      .edge { fill: #9AA5CE; font-size: 12px; text-anchor: middle; }
+      .flow { fill: none; stroke-width: 2.5; stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      .dotted { stroke-dasharray: 2 7; opacity: .75; }
+      @keyframes dash { to { stroke-dashoffset: -28; } }
+      .ping { animation: ping 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes ping { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.35); } }
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .ping { animation: none; }
+        .ping, .packet { display: none; }
+      }
+    </style>
+  </defs>
+  <rect width="1200" height="400" rx="18" fill="#16161E"/>
+  <rect width="1200" height="400" rx="18" fill="url(#grid)" opacity="0.6"/>
+  <text x="60" y="92" font-size="54" font-weight="800" fill="url(#title)">aws-data-pipeline</text>
+  <text x="62" y="132" font-size="22" fill="#C0CAF5">Del cielo al panel: el tiempo de 6 ciudades españolas, cada día, en AWS.</text>
+  <text x="62" y="162" font-size="16" fill="#9AA5CE">Lambda · S3 · EventBridge · CodeBuild · Terraform · dbt + DuckDB · GitHub OIDC · LocalStack</text>
+  <path class="flow" stroke="#7DCFFF" d="M200 290 H279.9"/>
+  <path class="flow" stroke="#FF9E64" d="M446.9 290 H526.8"/>
+  <path class="flow" stroke="#9ECE6A" d="M700.2 290 H780.1"/>
+  <path class="flow" stroke="#F7768E" d="M930.1 290 H1010"/>
+  <circle class="packet" r="6" fill="#7DCFFF"><animateMotion dur="4s" begin="0s" repeatCount="indefinite" path="M125 290 H200 H279.9 H446.9 H526.8 H700.2 H780.1 H930.1 H1010 H1085"/></circle>
+  <circle class="packet" r="5" fill="#FF9E64"><animateMotion dur="4s" begin="-1.3s" repeatCount="indefinite" path="M125 290 H200 H279.9 H446.9 H526.8 H700.2 H780.1 H930.1 H1010 H1085"/></circle>
+  <circle class="packet" r="5" fill="#9ECE6A"><animateMotion dur="4s" begin="-2.7s" repeatCount="indefinite" path="M125 290 H200 H279.9 H446.9 H526.8 H700.2 H780.1 H930.1 H1010 H1085"/></circle>
+  <rect class="node" x="50" y="245" width="150" height="90" rx="14" stroke="#7DCFFF"/>
+  <text class="label" x="125" y="284">Open-Meteo</text>
+  <text class="sub" x="125" y="308">API pública</text>
+  <rect class="node" x="279.9" y="245" width="167" height="90" rx="14" stroke="#FF9E64"/>
+  <text class="label" x="363.4" y="284">λ Lambda</text>
+  <text class="sub" x="363.4" y="308">06:00 UTC · reintentos</text>
+  <rect class="node" x="526.8" y="245" width="173.5" height="90" rx="14" stroke="#9ECE6A"/>
+  <text class="label" x="613.5" y="284">S3 data lake</text>
+  <text class="sub" x="613.5" y="308">Parquet · dt=AAAA-MM-DD</text>
+  <rect class="node" x="780.1" y="245" width="150" height="90" rx="14" stroke="#F7768E"/>
+  <text class="label" x="855.1" y="284">dbt + DuckDB</text>
+  <text class="sub" x="855.1" y="308">16 tests de calidad</text>
+  <rect class="node" x="1010" y="245" width="150" height="90" rx="14" stroke="#BB9AF7"/>
+  <text class="label" x="1085" y="284">Panel</text>
+  <text class="sub" x="1085" y="308">Streamlit</text>
+</svg>

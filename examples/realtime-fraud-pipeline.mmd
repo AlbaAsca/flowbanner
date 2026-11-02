@@ -1,0 +1,12 @@
+---
+title: Realtime Fraud Pipeline
+subtitle: Cada pago se analiza mientras ocurre: la alerta llega antes de que acabe el ataque.
+stack: Java 21 · Spring Boot 4 · Apache Kafka (KRaft) · Kafka Streams · WebFlux · SSE · Testcontainers
+pulse: S
+---
+flowchart LR
+  P[Productor<br/>pagos y ataques]:::green --> T[Kafka<br/>transactions]:::cyan
+  T --> S[Kafka Streams<br/>ventanas · reglas · estado]:::purple
+  S --> A[Kafka<br/>fraud-alerts]:::red
+  S --> Q[DLQ<br/>transactions.dlq]:::amber
+  A --> D[Panel<br/>SSE]:::blue

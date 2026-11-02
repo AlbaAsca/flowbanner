@@ -1,0 +1,46 @@
+name: flowbanner
+description: Render Mermaid-style .mmd files to animated SVG banners
+branding:
+  icon: image
+  color: purple
+inputs:
+  files:
+    description: Space-separated .mmd files or globs (** is supported)
+    default: docs/**/*.mmd
+  commit:
+    description: Commit and push the generated SVGs
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - shell: bash
+      run: pip install --quiet "$GITHUB_ACTION_PATH"
+    - shell: bash
+      env:
+        FILES: ${{ inputs.files }}
+      run: |
+        shopt -s globstar nullglob
+        files=($FILES)
+        if [ ${#files[@]} -eq 0 ]; then
+          echo "::error::No .mmd files match: $FILES"
+          exit 1
+        fi
+        flowbanner build "${files[@]}"
+    - if: inputs.commit == 'true'
+      shell: bash
+      env:
+        FILES: ${{ inputs.files }}
+      run: |
+        shopt -s globstar nullglob
+        for f in $FILES; do git add "${f%.mmd}.svg"; done
+        if git diff --cached --quiet; then
+          echo "Banners already up to date"
+          exit 0
+        fi
+        git config user.name "github-actions[bot]"
+        git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+        git commit -m "docs: regenerate banners"
+        git push

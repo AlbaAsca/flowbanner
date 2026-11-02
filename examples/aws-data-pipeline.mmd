@@ -1,0 +1,10 @@
+---
+title: aws-data-pipeline
+subtitle: Del cielo al panel: el tiempo de 6 ciudades españolas, cada día, en AWS.
+stack: Lambda · S3 · EventBridge · CodeBuild · Terraform · dbt + DuckDB · GitHub OIDC · LocalStack
+---
+flowchart LR
+  M[Open-Meteo<br/>API pública]:::cyan --> L[λ Lambda<br/>06:00 UTC · reintentos]:::orange
+  L --> S[S3 data lake<br/>Parquet · dt=AAAA-MM-DD]:::green
+  S --> D[dbt + DuckDB<br/>16 tests de calidad]:::red
+  D --> P[Panel<br/>Streamlit]:::purple

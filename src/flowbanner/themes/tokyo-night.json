@@ -1,0 +1,19 @@
+{
+  "background": "#16161E",
+  "grid": "#1F2335",
+  "title_from": "#7AA2F7",
+  "title_to": "#BB9AF7",
+  "node_fill": "#24283B",
+  "text": "#C0CAF5",
+  "muted": "#9AA5CE",
+  "default_color": "cyan",
+  "colors": {
+    "blue": "#7AA2F7",
+    "cyan": "#7DCFFF",
+    "green": "#9ECE6A",
+    "amber": "#E0AF68",
+    "orange": "#FF9E64",
+    "red": "#F7768E",
+    "purple": "#BB9AF7"
+  }
+}

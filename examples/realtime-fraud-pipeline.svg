@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#7AA2F7"/><stop offset="1" stop-color="#BB9AF7"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1F2335" stroke-width="1"/>
+    </pattern>
+    <style>
+      .node { fill: #24283B; stroke-width: 2; }
+      .label { fill: #C0CAF5; font-size: 17px; font-weight: 600; text-anchor: middle; }
+      .sub { fill: #9AA5CE; font-size: 13px; text-anchor: middle; }
+      .edge { fill: #9AA5CE; font-size: 12px; text-anchor: middle; }
+      .flow { fill: none; stroke-width: 2.5; stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      .dotted { stroke-dasharray: 2 7; opacity: .75; }
+      @keyframes dash { to { stroke-dashoffset: -28; } }
+      .ping { animation: ping 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes ping { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.35); } }
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .ping { animation: none; }
+        .ping, .packet { display: none; }
+      }
+    </style>
+  </defs>
+  <rect width="1200" height="520" rx="18" fill="#16161E"/>
+  <rect width="1200" height="520" rx="18" fill="url(#grid)" opacity="0.6"/>
+  <text x="60" y="92" font-size="54" font-weight="800" fill="url(#title)">Realtime Fraud Pipeline</text>
+  <text x="62" y="132" font-size="22" fill="#C0CAF5">Cada pago se analiza mientras ocurre: la alerta llega antes de que acabe el ataque.</text>
+  <text x="62" y="162" font-size="16" fill="#9AA5CE">Java 21 · Spring Boot 4 · Apache Kafka (KRaft) · Kafka Streams · WebFlux · SSE · Testcontainers</text>
+  <path class="flow" stroke="#9ECE6A" d="M200 350 H279.2"/>
+  <path class="flow" stroke="#7DCFFF" d="M429.2 350 H508.5"/>
+  <path class="flow" stroke="#BB9AF7" d="M701.5 350 C741.1 350, 741.1 290, 780.8 290"/>
+  <path class="flow" stroke="#BB9AF7" d="M701.5 350 C741.1 350, 741.1 410, 780.8 410"/>
+  <path class="flow" stroke="#F7768E" d="M930.8 290 C970.4 290, 970.4 350, 1010 350"/>
+  <circle class="packet" r="6" fill="#9ECE6A"><animateMotion dur="4s" begin="0s" repeatCount="indefinite" path="M125 350 H200 H279.2 H429.2 H508.5 H701.5 C741.1 350, 741.1 290, 780.8 290 H930.8 C970.4 290, 970.4 350, 1010 350 H1085"/></circle>
+  <circle class="packet" r="5" fill="#7DCFFF"><animateMotion dur="4s" begin="-1.3s" repeatCount="indefinite" path="M125 350 H200 H279.2 H429.2 H508.5 H701.5 C741.1 350, 741.1 290, 780.8 290 H930.8 C970.4 290, 970.4 350, 1010 350 H1085"/></circle>
+  <circle class="packet" r="5" fill="#BB9AF7"><animateMotion dur="4s" begin="-2.7s" repeatCount="indefinite" path="M125 350 H200 H279.2 H429.2 H508.5 H701.5 C741.1 350, 741.1 290, 780.8 290 H930.8 C970.4 290, 970.4 350, 1010 350 H1085"/></circle>
+  <circle class="packet" r="6" fill="#BB9AF7"><animateMotion dur="2s" begin="0s" repeatCount="indefinite" path="M605 350 H701.5 C741.1 350, 741.1 410, 780.8 410 H855.8"/></circle>
+  <rect class="node" x="50" y="305" width="150" height="90" rx="14" stroke="#9ECE6A"/>
+  <text class="label" x="125" y="344">Productor</text>
+  <text class="sub" x="125" y="368">pagos y ataques</text>
+  <rect class="node" x="279.2" y="305" width="150" height="90" rx="14" stroke="#7DCFFF"/>
+  <text class="label" x="354.2" y="344">Kafka</text>
+  <text class="sub" x="354.2" y="368">transactions</text>
+  <rect class="node ping" x="508.5" y="305" width="193" height="90" rx="14" stroke="#BB9AF7"/>
+  <rect class="node" x="508.5" y="305" width="193" height="90" rx="14" stroke="#BB9AF7"/>
+  <text class="label" x="605" y="344">Kafka Streams</text>
+  <text class="sub" x="605" y="368">ventanas · reglas · estado</text>
+  <rect class="node" x="780.8" y="245" width="150" height="90" rx="14" stroke="#F7768E"/>
+  <text class="label" x="855.8" y="284">Kafka</text>
+  <text class="sub" x="855.8" y="308">fraud-alerts</text>
+  <rect class="node" x="780.8" y="365" width="150" height="90" rx="14" stroke="#E0AF68"/>
+  <text class="label" x="855.8" y="404">DLQ</text>
+  <text class="sub" x="855.8" y="428">transactions.dlq</text>
+  <rect class="node" x="1010" y="305" width="150" height="90" rx="14" stroke="#7AA2F7"/>
+  <text class="label" x="1085" y="344">Panel</text>
+  <text class="sub" x="1085" y="368">SSE</text>
+</svg>

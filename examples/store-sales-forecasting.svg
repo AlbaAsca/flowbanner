@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#7AA2F7"/><stop offset="1" stop-color="#BB9AF7"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1F2335" stroke-width="1"/>
+    </pattern>
+    <style>
+      .node { fill: #24283B; stroke-width: 2; }
+      .label { fill: #C0CAF5; font-size: 17px; font-weight: 600; text-anchor: middle; }
+      .sub { fill: #9AA5CE; font-size: 13px; text-anchor: middle; }
+      .edge { fill: #9AA5CE; font-size: 12px; text-anchor: middle; }
+      .flow { fill: none; stroke-width: 2.5; stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      .dotted { stroke-dasharray: 2 7; opacity: .75; }
+      @keyframes dash { to { stroke-dashoffset: -28; } }
+      .ping { animation: ping 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+      @keyframes ping { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.35); } }
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .ping { animation: none; }
+        .ping, .packet { display: none; }
+      }
+    </style>
+  </defs>
+  <rect width="1200" height="400" rx="18" fill="#16161E"/>
+  <rect width="1200" height="400" rx="18" fill="url(#grid)" opacity="0.6"/>
+  <text x="60" y="92" font-size="54" font-weight="800" fill="url(#title)">store-sales-forecasting</text>
+  <text x="62" y="132" font-size="22" fill="#C0CAF5">¿Cuánto venderá mañana un supermercado? 1.782 series, validación temporal honesta.</text>
+  <text x="62" y="162" font-size="16" fill="#9AA5CE">Python · pandas · LightGBM · backtesting · Kaggle · equipo de agentes de IA</text>
+  <path class="flow" stroke="#7DCFFF" d="M200 290 H290"/>
+  <path class="flow" stroke="#7DCFFF" d="M440 290 H530"/>
+  <path class="flow" stroke="#E0AF68" d="M680 290 H770"/>
+  <path class="flow" stroke="#BB9AF7" d="M920 290 H1010"/>
+  <circle class="packet" r="6" fill="#7DCFFF"><animateMotion dur="4s" begin="0s" repeatCount="indefinite" path="M125 290 H200 H290 H440 H530 H680 H770 H920 H1010 H1085"/></circle>
+  <circle class="packet" r="5" fill="#E0AF68"><animateMotion dur="4s" begin="-1.3s" repeatCount="indefinite" path="M125 290 H200 H290 H440 H530 H680 H770 H920 H1010 H1085"/></circle>
+  <circle class="packet" r="5" fill="#BB9AF7"><animateMotion dur="4s" begin="-2.7s" repeatCount="indefinite" path="M125 290 H200 H290 H440 H530 H680 H770 H920 H1010 H1085"/></circle>
+  <rect class="node" x="50" y="245" width="150" height="90" rx="14" stroke="#7DCFFF"/>
+  <text class="label" x="125" y="284">Idea</text>
+  <text class="sub" x="125" y="308">45 experimentos</text>
+  <rect class="node" x="290" y="245" width="150" height="90" rx="14" stroke="#7DCFFF"/>
+  <text class="label" x="365" y="284">Backtest</text>
+  <text class="sub" x="365" y="308">4 folds</text>
+  <rect class="node" x="530" y="245" width="150" height="90" rx="14" stroke="#E0AF68"/>
+  <text class="label" x="605" y="284">Holdout</text>
+  <text class="sub" x="605" y="308">últimos 16 días</text>
+  <rect class="node" x="770" y="245" width="150" height="90" rx="14" stroke="#BB9AF7"/>
+  <text class="label" x="845" y="284">Kaggle</text>
+  <text class="sub" x="845" y="308">10 versiones</text>
+  <rect class="node" x="1010" y="245" width="150" height="90" rx="14" stroke="#9ECE6A"/>
+  <text class="label" x="1085" y="284">RMSLE</text>
+  <text class="sub" x="1085" y="308">0,45751 → 0,38839</text>
+</svg>

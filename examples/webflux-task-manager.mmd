@@ -1,0 +1,11 @@
+---
+title: WebFlux Task Manager
+subtitle: API reactiva de tareas: lo que cambia un usuario lo ven todos, al instante.
+stack: Java 21 · Spring Boot 4 · WebFlux · MongoDB reactivo · HATEOAS · SSE · Testcontainers
+pulse: API
+---
+flowchart LR
+  U[Usuaria A<br/>POST /api/tasks]:::green --> API[Spring WebFlux<br/>HATEOAS · Sinks]:::cyan
+  API --> DB[MongoDB<br/>reactivo]:::green
+  API -->|SSE| V[Usuario B]:::purple
+  API -.->|SSE| U
