@@ -89,6 +89,11 @@ def test_packets_never_wait_at_the_origin():
     assert begins and all(value <= 0 for value in begins)
 
 
+def test_packets_are_always_shown():
+    svg = build(CHAIN)
+    assert "<animateMotion" in svg and "prefers-reduced-motion" not in svg
+
+
 def test_output_is_self_contained_and_deterministic():
     assert build(CHAIN) == build(CHAIN)
     assert "<script" not in build(CHAIN) and "href" not in build(CHAIN)

@@ -14,10 +14,6 @@
       @keyframes dash { to { stroke-dashoffset: -28; } }
       .ping { animation: ping 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
       @keyframes ping { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.35); } }
-      @media (prefers-reduced-motion: reduce) {
-        .flow, .ping { animation: none; }
-        .ping, .packet { display: none; }
-      }
     </style>
   </defs>
   <rect width="1200" height="520" rx="18" fill="#16161E"/>
